@@ -10,29 +10,39 @@ void DisplayButtons() {
   int intCursorX;
   int intCursorY;
 
-  //Display buttons
   //FADE Button
-  tft.fillRect(10, 50, 140, 150, TFT_BLACK);  //FADE button: X1, Y1, X2, Y2
+  if (intCurrentColor == 0) {
+    tft.fillRect(10, 50, 140, 150, TFT_WHITE);  //FADE button: X1, Y1, X2, Y2
+    tft.setTextColor(TFT_BLACK);
+  }
+  else {
+    tft.fillRect(10, 50, 140, 150, TFT_BLACK);  //FADE button: X1, Y1, X2, Y2
+    tft.setTextColor(TFT_WHITE);
+  }
   intCursorX = 50;
   intCursorY = 75;
-  tft.setTextColor(TFT_WHITE);
   tft.setTextSize(3);
-  tft.setCursor(intCursorX, intCursorY);
-  tft.println("Turn");
-  tft.setCursor(intCursorX, intCursorY + 30);
-  tft.println("Fade");
+  tft.setCursor(intCursorX + 10, intCursorY);
+  tft.println("LED");
+  tft.setCursor(intCursorX - 30, intCursorY + 30);
+  tft.println("Fade is");
   tft.setCursor(intCursorX, intCursorY + 75);
   tft.setTextSize(4);
   if (EEPROM[0] == 0) {
-    tft.print("ON"); }
-  else {tft.print("OFF"); }
+    tft.print("OFF"); }
+  else {tft.print("ON"); }
   
-
   //PATTERN Button
-  tft.fillRect(170, 50, 140, 150, TFT_BLACK);  //PATTERN button: X1, Y1, X2, Y2
+  if (intCurrentColor == 0) {
+    tft.fillRect(170, 50, 140, 150, TFT_WHITE);  //PATTERN button: X1, Y1, X2, Y2
+    tft.setTextColor(TFT_BLACK);
+  }
+  else {
+    tft.fillRect(170, 50, 140, 150, TFT_BLACK);  //PATTERN button: X1, Y1, X2, Y2
+    tft.setTextColor(TFT_WHITE);
+  }
   intCursorX = 200;
   intCursorY = 80;
-  tft.setTextColor(TFT_WHITE);
   tft.setTextSize(3);
   tft.setCursor(intCursorX, intCursorY);
   tft.println("Goto");

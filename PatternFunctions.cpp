@@ -8,173 +8,210 @@
 
 void DisplayWhite() {
   // White
+  byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 1;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 255;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 1 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 }
 
 
 void DisplayRed() {
   // Red
+  byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 2;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 2 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 }
 
 
 void DisplayGreen() {
   // Green
+  byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 3;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 0;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 3 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 }
 
 
 void DisplayBlue() {
   // Blue
+  byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 4;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 255;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 4 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 }
 
 
 void DisplayOrange() {
   // Orange
+  byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 5;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 165;
   intBluePinTargetValue = 0;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 8 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
+}
+
+
+void DisplayOFF() {
+  // LEDs OFF
+  byte byteCurrentFade = byteFadeOnOff;
+  intCurrentColor = 0;
+  intRedPinTargetValue = 0;
+  intGreenPinTargetValue = 0;
+  intBluePinTargetValue = 0;
+  UpdateDisplay(intCurrentColor);
+  GetPoint();  //Determine if FADE or PATTERN needs to change
+  ToggleFade();  //Determine if FADE needs to be toggled
+  TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 9 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 }
 
 
 void CycleRedWhiteBlue() {  //Delay between colors is determined inside the GetPoint function
   // Red
+  byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 2;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 5) {return;}  //Pattern has changed. Exit function immediataly.
+  if (intPattern != 5 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 
   // White
+  byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 1;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 255;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 5) {return;}  //Pattern has changed. Exit function immediataly.
+  if (intPattern != 5 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 
   // Blue
+  byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 4;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 255;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 5 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 }
 
 
 void CycleRedGreen() {  //Delay between colors is determined inside the GetPoint function
   // Red
+  byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 2;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 6) {return;}  //Pattern has changed. Exit function immediataly.
+  if (intPattern != 6 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 
   // Green
+  byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 3;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 0;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 6 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 }
 
 
 void CyclePrimaryColors() {  //Delay between colors is determined inside the GetPoint function
   // Red
+  byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 2;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 7) {return;}  //Pattern has changed. Exit function immediataly.
+  if (intPattern != 7 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 
   // Green
+  byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 3;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 0;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 7) {return;}  //Pattern has changed. Exit function immediataly.
+  if (intPattern != 7 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 
   // Blue
+  byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 4;
-  UpdateDisplay(intCurrentColor);
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 255;
-  UpdateLEDs();
+  UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
+  if (intPattern != 7 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
+  UpdateLEDs();
 }
 
 
@@ -187,6 +224,7 @@ void UpdateDisplay(int BackgroundColor) {
     {
     case 0:  //Black
       tft.fillScreen(TFT_BLACK);
+      tft.setTextColor(TFT_WHITE);
       tft.print(strPatternDescription);
       break;
     case 1:  //White
@@ -216,6 +254,7 @@ void UpdateDisplay(int BackgroundColor) {
     }
     DisplayButtons();
     tft.setTextColor(TFT_BLACK);
+    if (BackgroundColor == 0) {tft.setTextColor(TFT_WHITE);}
     tft.setTextSize(2);
     tft.setCursor(10, 215);
     tft.print("Version: "); tft.print(strVersion);
@@ -352,6 +391,12 @@ void TogglePattern() {
       strPatternDescription = "Constant Orange (8)";
       break;
     case 8:
+      intPattern = 9;  //LEDs OFF
+      EEPROM[1] = 9;
+      Serial.print("Pattern set to: "); Serial.println(intPattern);
+      strPatternDescription = "LEDs OFF (9)";
+      break;
+    case 9:
       intPattern = 1;  //start over
       EEPROM[1] = 1;
       Serial.print("Pattern set to: "); Serial.println(intPattern);

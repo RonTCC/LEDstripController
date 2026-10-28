@@ -14,7 +14,7 @@ const int bluePin = 12;
 //Global variables
 byte byteFadeOnOff = 0;  //0=No Fade, 1=Fade
 int intPattern = 0;
-int intNumberOfPatterns = 8;
+int intNumberOfPatterns = 9;
 int intCurrentColor = 0;  //0=Black, 1= White, 2=Red, 3=Green, 4=Blue, 5=Orange
 String strPatternDescription;
 byte byteStartOver = 0;
@@ -144,6 +144,11 @@ void loop() {
       strPatternDescription = "Constant Orange (8)";
       DisplayOrange();  //Orange
       break;      
+    case 9:
+      Serial.println("LEDs OFF.");
+      strPatternDescription = "LEDs OFF (9)";
+      DisplayOFF();  //Off
+      break;  
     default:
       Serial.println("Constant White pattern.");
       strPatternDescription = "Constant White (1)";
