@@ -46,6 +46,7 @@ void DisplayRed();
 void DisplayGreen();
 void DisplayBlue();
 void DisplayOrange();
+void DisplayOFF();
 void CycleRedWhiteBlue();
 void CycleRedGreen();
 void UpdateDisplay(int BackgroundColor);
