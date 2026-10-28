@@ -269,6 +269,13 @@ void UpdateLEDs() {
     intStepInterval = 10;
   }
 
+  tft.fillScreen(TFT_BLACK);
+  tft.setTextColor(TFT_WHITE);
+  tft.setTextSize(2);
+  tft.setCursor(0, 115);
+  tft.println(" One moment please.");
+  tft.print(" Updating the LED strip.");
+
   for (int i = 0; i < ((255 / intFadePerStep) + 1); i++) {
     //Update Red
     if (intRedPinTargetValue == intRedPinCurrentValue) {
