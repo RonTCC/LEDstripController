@@ -13,12 +13,13 @@ void DisplayWhite() {
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 255;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 1 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 1 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 
@@ -29,12 +30,13 @@ void DisplayRed() {
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 2 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 2 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 
@@ -45,12 +47,13 @@ void DisplayGreen() {
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 3 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 3 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 
@@ -61,12 +64,13 @@ void DisplayBlue() {
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 255;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 4 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 4 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 
@@ -77,12 +81,13 @@ void DisplayOrange() {
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 165;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 8 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 8 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 
@@ -93,12 +98,13 @@ void DisplayOFF() {
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 9 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 9 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 
@@ -109,12 +115,13 @@ void CycleRedWhiteBlue() {  //Delay between colors is determined inside the GetP
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
   if (intPattern != 5 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
 
   // White
   byteCurrentFade = byteFadeOnOff;
@@ -122,12 +129,13 @@ void CycleRedWhiteBlue() {  //Delay between colors is determined inside the GetP
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 255;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
   if (intPattern != 5 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
 
   // Blue
   byteCurrentFade = byteFadeOnOff;
@@ -135,12 +143,13 @@ void CycleRedWhiteBlue() {  //Delay between colors is determined inside the GetP
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 255;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 5 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 5 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 
@@ -151,12 +160,13 @@ void CycleRedGreen() {  //Delay between colors is determined inside the GetPoint
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
   if (intPattern != 6 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
 
   // Green
   byteCurrentFade = byteFadeOnOff;
@@ -164,12 +174,13 @@ void CycleRedGreen() {  //Delay between colors is determined inside the GetPoint
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 6 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 6 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 
@@ -180,12 +191,13 @@ void CyclePrimaryColors() {  //Delay between colors is determined inside the Get
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
   if (intPattern != 7 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
 
   // Green
   byteCurrentFade = byteFadeOnOff;
@@ -193,12 +205,13 @@ void CyclePrimaryColors() {  //Delay between colors is determined inside the Get
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 255;
   intBluePinTargetValue = 0;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
   if (intPattern != 7 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
 
   // Blue
   byteCurrentFade = byteFadeOnOff;
@@ -206,12 +219,13 @@ void CyclePrimaryColors() {  //Delay between colors is determined inside the Get
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
   intBluePinTargetValue = 255;
+  //UpdateDisplay(intCurrentColor);
+  UpdateLEDs();
   UpdateDisplay(intCurrentColor);
   GetPoint();  //Determine if FADE or PATTERN needs to change
   ToggleFade();  //Determine if FADE needs to be toggled
   TogglePattern();  //Determine if PATTERN needs to be toggled
-  if (intPattern != 7 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
-  UpdateLEDs();
+  //if (intPattern != 7 || byteCurrentFade != byteFadeOnOff) {return;}  //If either FADE or PATTERN has changed, avoid delay experienced when fading LEDs
 }
 
 

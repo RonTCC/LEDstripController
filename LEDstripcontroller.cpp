@@ -14,7 +14,7 @@ const int bluePin = 12;
 //Global variables
 byte byteFadeOnOff = 0;  //0=No Fade, 1=Fade
 int intPattern = 0;
-int intNumberOfPatterns = 9;
+//int intNumberOfPatterns = 9;
 int intCurrentColor = 0;  //0=Black, 1= White, 2=Red, 3=Green, 4=Blue, 5=Orange
 String strPatternDescription;
 byte byteStartOver = 0;
@@ -34,7 +34,7 @@ int intTouchZ;
 int intTouchX;
 int intTouchY; 
 //const int XP = 8, YP = A3, XM = A2, YM = 9; //ID=0x9341  A1=Digital pin 55 on MEGA, A2=Digital pin 56 on MEGA, A3=Digital pin 57 on MEGA, A4=Digital pin 58 on MEGA
-#define MINPRESSURE 200
+#define MINPRESSURE 400  //was 200
 #define MAXPRESSURE 1000
 
 
@@ -88,8 +88,9 @@ void setup() {
   //Verify EEPROMs
     if ((EEPROM[0] != 0) & (EEPROM[0] != 1)) {EEPROM[0] = 0;}  //If Fade EEPROM does not have a valid value, set it to 0
     Serial.print("EEPROM[0] (Fade) is set to: "); Serial.println(EEPROM[0]);
-    if ((EEPROM[1] > intNumberOfPatterns) || (EEPROM[1] < 1)) {EEPROM[1] = 1;}  //If Pattern EEPROM does not have a valid value, set it to 1
-    Serial.print("EEPROM[1] (Pattern) is set to: "); Serial.println(EEPROM[1]);
+    //if ((EEPROM[1] > intNumberOfPatterns) || (EEPROM[1] < 1)) {EEPROM[1] = 1;}  //If Pattern EEPROM does not have a valid value, set it to 1
+      //Switch statement under loop() should now automatically set EEPROM[1] to a valid value
+    //Serial.print("EEPROM[1] (Pattern) is set to: "); Serial.println(EEPROM[1]);
   //Read pattern and fade from EEPROMs
     byteFadeOnOff = EEPROM[0];
     intPattern = EEPROM[1]; 
@@ -150,9 +151,12 @@ void loop() {
       DisplayOFF();  //Off
       break;  
     default:
-      Serial.println("Constant White pattern.");
-      strPatternDescription = "Constant White (1)";
-      DisplayWhite();  //White
+      //End of pattern list. Setting intPattern back to 1
+      intPattern = 1;
+      EEPROM[1] = intPattern;
+      //Serial.println("Constant White pattern.");
+      //strPatternDescription = "Constant White (1)";
+      //DisplayWhite();  //White
       break;
   }
 
