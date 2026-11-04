@@ -18,7 +18,7 @@ extern MCUFRIEND_kbv tft;  //MEGA
 extern byte byteFadeOnOff;  //0=No Fade, 1=Fade
 extern int intPattern;
 extern String strPatternDescription;
-extern int intNumberOfPatterns;
+//extern int intNumberOfPatterns;
 extern int intCurrentColor;
 extern byte byteStartOver;
 
