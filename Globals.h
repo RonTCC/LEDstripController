@@ -35,7 +35,7 @@ extern int intTouchZ;
 extern int intTouchX;
 extern int intTouchY; 
 const int XP = 8, YP = A3, XM = A2, YM = 9; //ID=0x9341  A1=Digital pin 55 on MEGA, A2=Digital pin 56 on MEGA, A3=Digital pin 57 on MEGA, A4=Digital pin 58 on MEGA
-#define MINPRESSURE 200
+#define MINPRESSURE 500  //originally 200
 #define MAXPRESSURE 1000
 
 
