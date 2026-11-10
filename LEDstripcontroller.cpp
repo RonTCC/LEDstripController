@@ -4,7 +4,7 @@
 #include <Adafruit_GFX.h>    // Core graphics library
 #include <Globals.h>
 
-String strVersion = "2026Nov28";
+String strVersion = "2026Nov10";
 
 const int redPin = 10;
 const int greenPin = 11;

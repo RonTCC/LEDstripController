@@ -8,7 +8,7 @@
 
 void DisplayWhite() {
   // White
-  byte byteCurrentFade = byteFadeOnOff;
+  //byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 1;
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 255;
@@ -25,7 +25,7 @@ void DisplayWhite() {
 
 void DisplayRed() {
   // Red
-  byte byteCurrentFade = byteFadeOnOff;
+  //byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 2;
   intRedPinTargetValue = 255;
   intGreenPinTargetValue = 0;
@@ -42,7 +42,7 @@ void DisplayRed() {
 
 void DisplayGreen() {
   // Green
-  byte byteCurrentFade = byteFadeOnOff;
+  //byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 3;
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 255;
@@ -59,7 +59,7 @@ void DisplayGreen() {
 
 void DisplayBlue() {
   // Blue
-  byte byteCurrentFade = byteFadeOnOff;
+  //byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 4;
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
@@ -76,10 +76,11 @@ void DisplayBlue() {
 
 void DisplayOrange() {
   // Orange
-  byte byteCurrentFade = byteFadeOnOff;
+  //byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 5;
   intRedPinTargetValue = 255;
-  intGreenPinTargetValue = 165;
+  intGreenPinTargetValue = 155;  
+  //intGreenPinTargetValue = 165;  
   intBluePinTargetValue = 0;
   //UpdateDisplay(intCurrentColor);
   UpdateLEDs();
@@ -93,7 +94,7 @@ void DisplayOrange() {
 
 void DisplayOFF() {
   // LEDs OFF
-  byte byteCurrentFade = byteFadeOnOff;
+  //byte byteCurrentFade = byteFadeOnOff;
   intCurrentColor = 0;
   intRedPinTargetValue = 0;
   intGreenPinTargetValue = 0;
@@ -271,13 +272,16 @@ void UpdateDisplay(int BackgroundColor) {
     if (BackgroundColor == 0) {tft.setTextColor(TFT_WHITE);}
     tft.setTextSize(2);
     tft.setCursor(10, 215);
-    tft.print("Version: "); tft.print(strVersion);
+    //tft.print("Version: "); tft.print(strVersion);
+    tft.print(" R="); tft.print(intRedPinCurrentValue); 
+    tft.print(" G="); tft.print(intGreenPinCurrentValue); 
+    tft.print(" B="); tft.print(intBluePinCurrentValue);
 }
 
 
 void UpdateLEDs() {
   intFadePerStep = 255;     // brightness change per step (1-255):  The higher the number, the faster the change.
-  intStepInterval = 0;   // ms between steps
+  intStepInterval = 1;   // ms between steps
   if (byteFadeOnOff) {
     intFadePerStep = 1;
     intStepInterval = 10;
@@ -298,16 +302,17 @@ void UpdateLEDs() {
     }
     else if (intRedPinTargetValue >= intRedPinCurrentValue) {  //Increase RED
       intRedPinCurrentValue = intRedPinCurrentValue + intFadePerStep;
-      if (intRedPinCurrentValue > 255) {intRedPinCurrentValue = 255;}
-      analogWrite(redPin, intRedPinCurrentValue);
-      Serial.print("RED pin set to: "); Serial.println(intRedPinCurrentValue);
     }
     else {  //Reduce RED
       intRedPinCurrentValue = intRedPinCurrentValue - intFadePerStep;
-      if (intRedPinCurrentValue < 0) {intRedPinCurrentValue = 0;}
-      analogWrite(redPin, intRedPinCurrentValue);
-      Serial.print("RED pin set to: "); Serial.println(intRedPinCurrentValue);
     }
+    //If the target value is within the value of intFadePerStep from the current value, we are done adjusting.
+      if (abs(intRedPinCurrentValue - intRedPinTargetValue) <= intFadePerStep) {intRedPinCurrentValue = intRedPinTargetValue;} 
+    if (intRedPinCurrentValue < 0) {intRedPinCurrentValue = 0;}
+    if (intRedPinCurrentValue > 255) {intRedPinCurrentValue = 255;}
+    analogWrite(redPin, intRedPinCurrentValue);
+    Serial.print("RED pin set to: "); Serial.println(intRedPinCurrentValue);
+
     //Update Green
     if (intGreenPinTargetValue == intGreenPinCurrentValue) {
       //do nothing
@@ -315,16 +320,17 @@ void UpdateLEDs() {
     }
     else if (intGreenPinTargetValue >= intGreenPinCurrentValue) {  //Increase GREEN
       intGreenPinCurrentValue = intGreenPinCurrentValue + intFadePerStep;
-      if (intGreenPinCurrentValue > 255) {intGreenPinCurrentValue = 255;}
-      analogWrite(greenPin, intGreenPinCurrentValue);
-      Serial.print("GREEN pin set to: "); Serial.println(intGreenPinCurrentValue);
     }
     else {  //Reduce GREEN
       intGreenPinCurrentValue = intGreenPinCurrentValue - intFadePerStep;
-      if (intGreenPinCurrentValue < 0) {intGreenPinCurrentValue = 0;}
-      analogWrite(greenPin, intGreenPinCurrentValue);
-      Serial.print("GREEN pin set to: "); Serial.println(intGreenPinCurrentValue);
     }
+    //If the target value is within the value of intFadePerStep from the current value, we are done adjusting.
+      if (abs(intGreenPinCurrentValue - intGreenPinTargetValue) <= intFadePerStep) {intGreenPinCurrentValue = intGreenPinTargetValue;} 
+    if (intGreenPinCurrentValue < 0) {intGreenPinCurrentValue = 0;}
+    if (intGreenPinCurrentValue > 255) {intGreenPinCurrentValue = 255;}
+    analogWrite(greenPin, intGreenPinCurrentValue);
+    Serial.print("GREEN pin set to: "); Serial.println(intGreenPinCurrentValue);
+
     //Update Blue
     if (intBluePinTargetValue == intBluePinCurrentValue) {
       //do nothing
@@ -332,17 +338,18 @@ void UpdateLEDs() {
     }
     else if (intBluePinTargetValue >= intBluePinCurrentValue) {  //Increase BLUE
       intBluePinCurrentValue = intBluePinCurrentValue + intFadePerStep;
-      if (intBluePinCurrentValue > 255) {intBluePinCurrentValue = 255;}
-      analogWrite(bluePin, intBluePinCurrentValue);
-      Serial.print("BLUE pin set to: "); Serial.println(intBluePinCurrentValue);
     }
     else {  //Reduce BLUE
       intBluePinCurrentValue = intBluePinCurrentValue - intFadePerStep;
-      if (intBluePinCurrentValue < 0) {intBluePinCurrentValue = 0;}
-      analogWrite(bluePin, intBluePinCurrentValue);
-      Serial.print("BLUE pin set to: "); Serial.println(intBluePinCurrentValue);
     }
-    delay(intStepInterval);
+    //If the target value is within the value of intFadePerStep from the current value, we are done adjusting.
+      if (abs(intBluePinCurrentValue - intBluePinTargetValue) <= intFadePerStep) {intBluePinCurrentValue = intBluePinTargetValue;} 
+    if (intBluePinCurrentValue < 0) {intBluePinCurrentValue = 0;}
+    if (intBluePinCurrentValue > 255) {intBluePinCurrentValue = 255;}
+    analogWrite(bluePin, intBluePinCurrentValue);
+    Serial.print("BLUE pin set to: "); Serial.println(intBluePinCurrentValue);
+
+  delay(intStepInterval);
   }
 }
 
